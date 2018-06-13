@@ -1,16 +1,12 @@
 // Implementation of vector (mutable array with automatic resizing)
-
 #include <iostream>
-
 using namespace std;
 
 class ResizingVector{
   int length, cap;
   int *array;
 
-
 public:
-
   //constructor
   ResizingVector(){
     length = 0, cap = 4;
@@ -33,12 +29,10 @@ public:
       std::cout << "Error: Index out of range!" << '\n';
       return;
     }
-
     int *temp = new int[cap];
     for (int i = 0; i < length; i++) {
       temp[i] = array[i];
     }
-
     for (int j = 0, i = 0; j < length; j++, i++) {
       if (j == index) {
         array[j] = item;
@@ -47,7 +41,6 @@ public:
       array[i] = temp[j];
     }
     length++;
-
     delete [] temp;
     temp = NULL;
   }
@@ -58,12 +51,10 @@ public:
       std::cout << "Error: Index out of range!" << '\n';
       return;
     }
-
     int *temp = new int[cap];
     for (int i = 0; i < length; i++) {
       temp[i] = array[i];
     }
-
     int i = 0;
     for (int j = 0; j < length; j++, i++) {
       if (j == index) {
