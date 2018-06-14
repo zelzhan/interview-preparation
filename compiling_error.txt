@@ -1,0 +1,4 @@
+/home/stayal0ne/interview-preparation/binary-search.cpp: In function ‘int main()’:
+/home/stayal0ne/interview-preparation/binary-search.cpp:27:52: error: expected ‘;’ before '\xa'
+     std::cout << "index " << i << " value " << i*2 '\n';
+                                                    ^~~~
