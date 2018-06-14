@@ -24,7 +24,6 @@ int binary_search(std::vector<int> arr, int target){
 }
 
 
-
 //test
 int main() {
   std::vector<int> v(16);
