@@ -1,46 +1,10 @@
-#implementation of maxHeap
+#implementation of maxHeap and heapsort
 
 class maxHeap:            
     def __init__(self):
         self.size = 0
         self.array = []
-        self.root = None
-        
-    def __swap(self, index1, index2):
-        temp = self.array[index1]
-        self.array[index1] = self.array[index2]
-        self.array[index2] = temp
-    
-    def __sift_up(self):
-        index = len(self.array)-1
-        target = self.array[index]
-        while(target > self.array[int((index-1)/2)]):
-             self.__swap(index, int((index-1)/2))
-             index = int((index-1)/2)
-             target = self.array[index]
-        print(self.array)
-        
-    def __sift_down(self):
-        index = 0
-        left_child = index*2 + 1
-        right_child = index*2 + 2
-        
-        if len(self.array) == 2:
-            if self.array[left_child] > self.array[index]:
-                self.__swap(left_child, right_child)
-            return
-        
-       # if len(self.array) == 3:
-            
-        maxi = left_child if self.array[left_child] > self.array[right_child] else right_child
-        while(self.array[index] < self.array[maxi]):
-            self.__swap(index, maxi)
-            left_child = index*2 + 1
-            right_child = index*2 + 2
-            maxi = left_child if self.array[left_child] > self.array[right_child] else right_child
-            if maxi > len(self.array): 
-                return
-        
+        self.root = None        
             
     def heapify(self, list_):
         for i in list_:
@@ -67,33 +31,62 @@ class maxHeap:
         temp = self.array.pop()
         if len(self.array) > 1:
             self.__sift_down()
-        print(self.array)
         return temp
         
-    def remove(index):
+    def remove(self, index):
         self.array.pop(index)
+        
+    def heap_sort(self, target):
+        self.array = self.heapify(target)
+        temp = self.array
+        res = []
+        while (len(self.array) > 0):
+            res.insert(0,self.extract_max())
+        self.array = temp
+        return res
+        
+    
+    def __heap_sort_swap(self, index1, index, arr):
+        temp = arr[index1]
+        arr[index1] = arr[index2]
+        arr[index2] = temp
+        return arr
+        
+    def __swap(self, index1, index2):
+        temp = self.array[index1]
+        self.array[index1] = self.array[index2]
+        self.array[index2] = temp
+            
+    def __sift_up(self):
+        index = len(self.array)-1
+        target = self.array[index]
+        while(target > self.array[int((index-1)/2)]):
+             self.__swap(index, int((index-1)/2))
+             index = int((index-1)/2)
+             target = self.array[index]
+        
+    def __sift_down(self):
+        index = 0
+        left_child = index*2 + 1
+        right_child = index*2 + 2
+        
+        if len(self.array) == 2:
+            if self.array[left_child] > self.array[index]:
+                self.__swap(left_child, right_child)
+            return
+            
+        maxi = left_child if self.array[left_child] > self.array[right_child] else right_child
+        while(self.array[index] < self.array[maxi]):
+            self.__swap(index, maxi)
+            left_child = index*2 + 1
+            right_child = index*2 + 2
+            maxi = left_child if self.array[left_child] > self.array[right_child] else right_child
+            if maxi > len(self.array): 
+                return
 
     
 if __name__ == '__main__':
     heap = maxHeap()
-    heap.insert(1)
-    heap.insert(3)
-    heap.insert(2)
-    heap.insert(1)
-    heap.insert(5)
-    heap.insert(10)
-    heap.insert(111)
-    heap.insert(12)
-    heap.insert(1122)
-    heap.insert(13)
-    for i in range(0, 20):
-        heap.insert(i)
-    heap.extract_max()
-    heap.extract_max()
-    heap.extract_max()
-    
-    heap.extract_max()
-    print(heap.extract_max())
-    
-     
-        
+
+    list_ = [0, 5, 7, 2, 3, 10, 15]
+    print(heap.heap_sort(list_))
