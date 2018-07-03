@@ -3,12 +3,13 @@ has sufficient space at the end to hold the additional characters, and that you 
 length of the string. (Note: If implementing in Java, please use a character array so that you can
 perform this operation in place.) """
 
-
+#time complexity O(N^2)
 def solution1(string, length):
     string = string.strip()
     string = string.replace(" ", "%20")
     return string
 
+#time complexity O(N^20
 def solution2(string, length):
     string = string.strip()
     i = 0
