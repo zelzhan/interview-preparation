@@ -2,6 +2,7 @@
 remove a character, or replace a character. Given two strings, write a function to check if they are
 one edit (or zero edits) away. """
 
+# time complexity O(N^2)
 def one_away(string1, string2):
 	string1 = list(string1)
 	string2 = list(string2)
