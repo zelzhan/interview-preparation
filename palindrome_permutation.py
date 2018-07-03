@@ -2,6 +2,8 @@
 A palindrome is a word or phrase that is the same forwards and backwards. A permutation
 is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words. """
 
+#Time complexity O(N^2)
+
 def palindrome(string):
 	center = ""
 	string = list(string.replace(" ", "").lower())
