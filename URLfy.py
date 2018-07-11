@@ -9,7 +9,7 @@ def solution1(string, length):
     string = string.replace(" ", "%20")
     return string
 
-#time complexity O(N^20
+#time complexity O(N^2)
 def solution2(string, length):
     string = string.strip()
     i = 0
