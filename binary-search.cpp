@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 //implementation of binary search algorithm
 int binary_search(std::vector<int> arr, int target){
   int lo = 0, hi = arr.size()-1;
