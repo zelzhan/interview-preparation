@@ -4,7 +4,7 @@ def bitwise(var1, var2):
     mask = var1 ^ var2
     counter = 0
     while(mask!=0):
-        counter += mask & 1
+        counter += mask & 1 
         mask = mask >> 1
     return counter
 
