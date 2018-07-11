@@ -35,6 +35,5 @@ int main() {
   }
 
   std::cout << "Target " << binary_recursion(v, 1000, 0, v.size()) << '\n';
-
   return 0;
 }
