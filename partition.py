@@ -4,41 +4,31 @@ to be after the elements less than x (see below). The partition element x can ap
 "right partition"; it does not need to appear between the left and right partitions."""
 
 
+def partition(list1, x):
+  list2 = LinkedList()
 
-def partition(list_, x):
-  #TODO size less than 3
-  left = list_.head
-  mid = left.next
-  right = mid.next
-  while(right.next):
-    if right.next.value > x:
+  head = list1.head
+  if head.value < x: list2.add(head.value)
+  while head.next:
+    head = head.next
+    if head.value < x: list2.add(head.value)
 
-      left.next = right
-      temp = right.next
-      right.next = mid
-      
-      temp_mid = right
-      while(temp_mid.next != mid):
-        temp_mid = temp_mid.next
-      temp_mid.next = temp
+  head = list1.head
+  if head.value >= x: list2.add(head.value)
+  while head.next:
+    head = head.next
+    if head.value >= x: list2.add(head.value)
+  
+  return list2
 
-      #reassign references
-      mid = right
-      right = temp_mid
-      print()
-      print(list_)
-      print()
-    right = right.next
-
-    
-
-
-
-
+  
 if __name__ == '__main__':
-  list_ = LinkedList()
-  list_.generate(20, 0, 7)
-  print(list_)
-  partition(list_, 4)
+  list1 = LinkedList()
+  list2 = LinkedList()
+
+  list1.generate(30, 0, 10)
+  # list2.generate(7, 0, 10)
+  print(list1)
   print()
-  print(list_)
+  # print(list2)
+  print(partition(list1, 5))
