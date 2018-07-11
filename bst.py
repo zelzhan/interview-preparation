@@ -21,10 +21,6 @@ class BST():
             elif value < temp.value:
                 temp = temp.right
         temp.
-        
-            
-            
-
 
 if __name__ == '__main__':
     bst = BST()
