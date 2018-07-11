@@ -12,7 +12,6 @@ def insertion_sort(arr):
             print(arr)
     return arr
 
-            
 if __name__ == '__main__':
     list_ = [3, 5, 1, 2, 10, 15, 4, 0]
     print(insertion_sort(list_))
