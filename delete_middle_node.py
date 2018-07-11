@@ -14,7 +14,6 @@ def delete_middle(list_):
       return
     head = head.next
 
-
 if __name__ == '__main__':
   list_ = LinkedList()
   list_.generate(10, 0, 30)
