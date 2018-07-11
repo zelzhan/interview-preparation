@@ -1,6 +1,7 @@
 """ Given two strings, write a method to decide if one is a permutation of the
 other. """
 
+#Time complexity O(N^2)
 def checker(string1, string2):
 	string1 = list(string1)
 	string2 = list(string2)
