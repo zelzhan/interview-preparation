@@ -1,4 +1,4 @@
-
+"""Given an array of integers, you need to find the local maxima."""
 #simple linear scan
 #O(N)
 def maxima1(some_list):
